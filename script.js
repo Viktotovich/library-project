@@ -9,8 +9,7 @@ return library.scrollIntoView();
 }
 
 /* MVP - Library cards */ 
-function Book(name, title, author, year, read) {
-    this.name = name,
+function Book(title, author, year) {
     this.title = title,
     this.author = author,
     this.year = year
@@ -25,4 +24,4 @@ Book.prototype.read = function() {
         }
     }
 
-atomicHabits = new Book();
+atomicHabits = new Book("Atomic Habits", "James Clear", 2018);
