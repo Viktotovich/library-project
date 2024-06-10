@@ -9,10 +9,11 @@ return library.scrollIntoView();
 }
 
 /* MVP - Library cards */ 
-function Book(title, author, year) {
+function Book(title, author, year, pages) {
     this.title = title,
     this.author = author,
-    this.year = year
+    this.year = year,
+    this.pages = pages
 }
 
 // more elegant to add it to the book __Proto__
@@ -24,4 +25,6 @@ Book.prototype.read = function() {
         }
     }
 
-atomicHabits = new Book("Atomic Habits", "James Clear", 2018);
+const atomicHabits = new Book("Atomic Habits", "James Clear", 2018, 277) ;
+const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigue', 2004, 224)
+
