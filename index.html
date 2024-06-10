@@ -45,7 +45,35 @@
         </div>
 
         <div class="user-book-container">
-            <div class="add-book" style="font-size: 5rem; color: greenyellow;">[+]</div>
+            <button class="add-book" style="font-size: 5rem; color: greenyellow;">[+]</button>
+            <dialog>
+                <form action="" method="">
+                    <div>
+                        <label for="title">Book Title:</label>
+                        <input id="title" type="text" name="title">
+                    </div>
+
+                    <div>
+                        <label for="author">Author Name:</label>
+                        <input id="author" type="text" name="author">
+                    </div>
+
+                    <div>
+                        <label for="year">Year of release:</label>
+                        <input id="year" type="year" name="year">
+                    </div>
+
+                    <div>
+                        <label for="pages">Pages:</label>
+                        <input id="pages" type="number" name="pages">
+                    </div>
+
+                    <div>
+                        <label for="userRead">Did you read it?</label>
+                        <input id="userRead" type="checkbox" name="userRead">
+                    </div>
+                </form>
+            </dialog>
         </div>
     </div>
 </body>
