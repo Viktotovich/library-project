@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-size-body: 0.8rem;
+    --font-size-header: 1.5rem;
+    --font-color-body: #000080; 
+    --main-bg-color: white;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr 2fr;
+}
+
+
+/* Linear gradient needed for bg color */
+.body-container {
+    display: flex;
+    background-image: linear-gradient(to right, #FF00FF, #7FFFD4);
+}

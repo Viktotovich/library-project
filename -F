@@ -1,0 +1,17 @@
+[33mcommit 9822497d4a042ff32e1aa3a591a442103ba040bc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Vladimir Laskin <148013724+Viktotovich@users.noreply.github.com>
+Date:   Mon Jun 10 06:58:55 2024 +0400
+
+    "Basic architecture done"
+
+[33mcommit 308c6deda2c42da6e6229ec20f3de62062336f65[m
+Author: Vladimir Laskin <148013724+Viktotovich@users.noreply.github.com>
+Date:   Mon Jun 10 06:40:33 2024 +0400
+
+    "Added initial files"
+
+[33mcommit a7503f3f985bce7c1aadcb09afe02ece826bfa7d[m
+Author: Vladimir Laskin <148013724+Viktotovich@users.noreply.github.com>
+Date:   Mon Jun 10 06:39:55 2024 +0400
+
+    Initial commit
