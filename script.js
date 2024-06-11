@@ -31,7 +31,6 @@ Book.prototype.read = function() {
 const atomicHabits = new Book("Atomic Habits", "James Clear", 2018, 277);
 const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigue', 2004, 224);
 
-
 // loop to add things in the object to the library 
 function addToLibrary() {
     for (const book in Book) {
