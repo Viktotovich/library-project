@@ -12,7 +12,7 @@ return libraryContainer.scrollIntoView();
 /* MVP - Library cards */
 const library = [];
 
-function Book(title, author, year, pages, read) {
+function Book(title, author, year, pages) {
     this.title = title,
     this.author = author,
     this.year = year,
@@ -34,8 +34,10 @@ const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigu
 // loop to add things in the object to the library 
 function addToLibrary() {
     for (const book in Book) {
+        if (Object.hasOwn(Book, book)) {
         console.log("book x")
         return book
+        }
     }
 }
 
