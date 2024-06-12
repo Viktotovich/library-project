@@ -22,9 +22,34 @@ body {
 /* Linear gradient needed for bg color */
 .body-container {
     display: flex;
+    flex-direction: column;
     background-image: linear-gradient(to right, #FF00FF, #7FFFD4);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
 
     >h1 {
         font-size: var(--font-size-header);
     }
+}
+
+.body-container > div {
+    padding: 0.7rem 0;
+}
+
+#anchor-to-library {
+    appearance: none;
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: #000080;
+}
+
+#anchor-to-library:hover {
+    background-color: rgb(199, 196, 196);
+}
+
+#anchor-to-library:active {
+    transform: translateY(1px);
+    background-color: rgb(160, 159, 159);
 }
