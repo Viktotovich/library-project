@@ -19,29 +19,52 @@ function Book(title, author, year, pages) {
     this.pages = pages
 }
 
-// more elegant to add it this way rather than __Proto__ + the latter is obsolete
 Book.prototype.read = function() {
-        if (!this.read) {
-            // add text readDom.textContent = 'Not read yet'
+        if (userRead.checked = true) {
+            return "read"
         } else {
-            // add text readDom.textContent = 'Read'
+            return "not read"
         }
     }
 
+// 2 books for an example display
 const atomicHabits = new Book("Atomic Habits", "James Clear", 2018, 277);
 const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigue', 2004, 224);
 
-// loop to add things in the object to the library 
-function addToLibrary() {
-    for (const book in Book) {
-        if (Object.hasOwn(Book, book)) {
-        console.log("book x")
-        return book
-        }
+//add books to the existing array
+library.splice(0, 0, atomicHabits, libroRojo);
+
+//Accept user input
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", addBook);
+
+
+function addBook(){
+    const userTitle = document.querySelector("#title");
+    const userAuthor = document.querySelector("#author");
+    const userYear = document.querySelector("#year");
+    const userPages = document.querySelector("#pages");
+    const userRead = document.querySelector("#userRead");
+
+    const title = userTitle.textContent;
+    const author = userAuthor.textContent;
+    const year = userYear.textContent;
+    const pages = userPages.textContent;
+
+    const userBook = userTitle;
+    userBook = new Book(title, author, year, pages, userRead)
+
+    library.push(userBook);
+}
+
+// loop to add things in the object to the library
+function addFromLibrary() {
+    //this is going to add the books from the array
+    for (i = 0; i < library.length; i++) {
+        //create a new element and upend it somewhere, need a parent, class, and a good design
     }
 }
 
-library.splice(0, 0, atomicHabits, libroRojo);
 
 
 
