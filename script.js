@@ -60,13 +60,14 @@ function addBook(){
 
 // loop to add things in the object to the library
 function addFromLibrary() {
-    const library = document.querySelector(".library");
+    const librarySection = document.querySelector(".library-section");
 
 
     for (i = 0; i < library.length; i++) {
-        bookContainer[i] = document.createElement("div");
-        bookContainer.appendChild('library');
-        
+        bookContainer[i] = document.createElement("div").setAttribute("class", "book-container"); 
+        bookContainer.appendChild('librarySection');
+        bookTitle[i] = document.createElement(".h2").setAttribute("class", "book-title");
+        bookTitle[i].textContent = library[i].this.title;
     }
 }
 
