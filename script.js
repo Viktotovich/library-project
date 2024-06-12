@@ -55,13 +55,18 @@ function addBook(){
     userBook = new Book(title, author, year, pages, userRead)
 
     library.push(userBook);
+    addFromLibrary();
 }
 
 // loop to add things in the object to the library
 function addFromLibrary() {
-    //this is going to add the books from the array
+    const library = document.querySelector(".library");
+
+
     for (i = 0; i < library.length; i++) {
-        //create a new element and upend it somewhere, need a parent, class, and a good design
+        bookContainer[i] = document.createElement("div");
+        bookContainer.appendChild('library');
+        
     }
 }
 
