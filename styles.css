@@ -26,7 +26,7 @@ body {
     background-image: linear-gradient(to right, #FF00FF, #7FFFD4);
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    padding: 5rem 0;
 
     >h1 {
         font-size: var(--font-size-header);
@@ -41,7 +41,7 @@ body {
     appearance: none;
     background-color: gainsboro;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.7rem;
     border: #000080;
 }
 
@@ -52,4 +52,35 @@ body {
 #anchor-to-library:active {
     transform: translateY(1px);
     background-color: rgb(160, 159, 159);
+}
+
+.library-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  
+  > h3 {
+    padding-bottom: 0.7rem;
+  }
+} 
+
+
+.add-book {
+  font-size: 5rem; 
+  color: blue;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+    
+ .add-book:hover {
+  background: gainsboro;
+  color: grey;
+}
+
+.add-book:active {
+  transform: translateY(1px);
+  box-shadow: 1px 2px 2px 0
 }
