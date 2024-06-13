@@ -1,5 +1,5 @@
 // Anchor to scroll - add slow scrolling later on
-const goToLibraryButton = document.getElementById("anchor-to-library");
+const goToLibraryButton = document.querySelector("#anchor-to-library");
 const libraryContainer = document.querySelector(".library-container");
 
 
@@ -8,6 +8,7 @@ goToLibraryButton.addEventListener("click", goToLibrary());
 function goToLibrary() {
 return libraryContainer.scrollIntoView();
 }
+
 
 /* MVP - Library cards */
 const library = [];
@@ -62,12 +63,17 @@ function addBook(){
 function addFromLibrary() {
     const librarySection = document.querySelector(".library-section");
 
+    let bookContainer;
+    let bookTitle;
+    let bookYear;
+    let bookPages;
 
     for (i = 0; i < library.length; i++) {
-        bookContainer[i] = document.createElement("div").setAttribute("class", "book-container");
+        bookContainer = document.createElement("div").setAttribute("class", `${library[i].title}`);
+        bookContainer = document.querySelector('.`${library[i].title}`')
         bookContainer.appendChild('librarySection');
-        bookTitle[i] = document.createElement(".h2").setAttribute("class", "book-title");
-        bookTitle[i].textContent = library[i].this.title;
+        bookTitle = document.createElement(".h2").setAttribute("class", "book-title");
+        bookTitle.textContent = library[i].this.title;
     }
 }
 
