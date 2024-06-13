@@ -61,19 +61,23 @@ function addBook(){
 
 // loop to add things in the object to the library
 function addFromLibrary() {
-    const librarySection = document.querySelector(".library-section");
 
     let bookContainer;
     let bookTitle;
     let bookYear;
     let bookPages;
+    let librarySection;
 
     for (i = 0; i < library.length; i++) {
-        bookContainer = document.createElement("div").setAttribute("class", `${library[i].title}`);
-        bookContainer = document.querySelector('.`${library[i].title}`')
-        bookContainer.appendChild('librarySection');
-        bookTitle = document.createElement(".h2").setAttribute("class", "book-title");
-        bookTitle.textContent = library[i].this.title;
+        bookContainer = document.createElement("div");
+        bookContainer.setAttribute("class", `${library[i].title}`);
+        bookContainer = document.querySelector(`.${library[i].title}`);
+
+        librarySection = document.querySelector(".library-section");
+        librarySection.appendChild('bookContainer');
+        bookTitle = document.createElement(".h2");
+        bookTitle.setAttribute("class", "book-title");
+        bookTitle.textContent = library[i].title;
     }
 }
 
