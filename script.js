@@ -55,13 +55,19 @@ function addBook(){
     userBook = new Book(title, author, year, pages, userRead)
 
     library.push(userBook);
+    addFromLibrary();
 }
 
 // loop to add things in the object to the library
 function addFromLibrary() {
-    //this is going to add the books from the array
+    const librarySection = document.querySelector(".library-section");
+
+
     for (i = 0; i < library.length; i++) {
-        //create a new element and upend it somewhere, need a parent, class, and a good design
+        bookContainer[i] = document.createElement("div").setAttribute("class", "book-container");
+        bookContainer.appendChild('librarySection');
+        bookTitle[i] = document.createElement(".h2").setAttribute("class", "book-title");
+        bookTitle[i].textContent = library[i].this.title;
     }
 }
 
