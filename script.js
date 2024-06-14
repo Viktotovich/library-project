@@ -61,44 +61,20 @@ function addBook(){
 
 // loop to add things in the object to the library
 function addFromLibrary() {
+    const librarySection = document.querySelector(".library-section");
 
     let bookContainer;
     let bookTitle;
     let bookAuthor;
     let bookYear;
     let bookPages;
-    let librarySection;
 
     for (i = 0; i < library.length; i++) {
-        //selecting the container, and creating our first element
-        bookContainer = document.createElement("div");
-        bookContainer.setAttribute("class", `${'book' + (i + 1)}`);
-        librarySection = document.querySelector(".library-section");
-        librarySection.appendChild(bookContainer);
-
-        //Title
-        bookTitle = document.createElement("h2");
-        bookTitle.setAttribute("class", `${library[i].title}`);
-        bookTitle.textContent = library[i].title;
-        bookContainer.appendChild(bookTitle);
-
-        //Author
-        bookAuthor = document.createElement("div");
-        bookAuthor.setAttribute("class", "author")
-        bookAuthor.textContent = library[i].author;
-        bookAuthor.appendChild(bookTitle);
-
-        //Year
-        bookYear = document.createElement("div");
-        bookYear.setAttribute("class", 'book-year')
-        bookYear.textContent = library[i].year;
-        bookContainer.appendChild(bookYear);
-
-        //Pages
-        bookPages = document.createElement('span');
-        bookPages.setAttribute("class", "year")
-        bookPages.textContent = `${library[i].year}`
-        bookPages.appendChild(bookTitle);
+        bookContainer = document.createElement("div").setAttribute("class", `${library[i].title}`);
+        bookContainer = document.querySelector('.`${library[i].title}`')
+        bookContainer.appendChild('librarySection');
+        bookTitle = document.createElement(".h2").setAttribute("class", "book-title");
+        bookTitle.textContent = library[i].this.title;
     }
 }
 
