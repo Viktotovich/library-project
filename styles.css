@@ -56,15 +56,21 @@ body {
     cursor: progress;
 }
 
-.library-container {
+.library-container,
+#book-sort {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid gainsboro;
 > h3 {
     padding-bottom: 0.7rem;
+    border-bottom: 1px solid gainsboro;
+    margin-top: 3.5rem;
 }
+}
+
+.library-container {
+    border-top: 1px solid gainsboro;
 }
 
 .add-book {
@@ -75,6 +81,7 @@ body {
     margin-top: 1rem;
     border-radius: 5px;
     appearance: none;
+    transition: smooth 0.2s;
 }
 
 .add-book:hover {
@@ -87,16 +94,27 @@ body {
     transform: translateY(1px);
     box-shadow: 1px 2px 2px 0;
     color: rgb(163, 158, 158);
-    cursor: loading;
+    cursor: progress;
 }
 
 #book-sort {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-template-rows: 1fr 1fr;
-    gap: 30px;
+    gap: 20px;
   }
   
   #book-sort > div {
     border: 1px solid gainsboro;
   }
+
+  ::backdrop {
+    background: linear-gradient(to right, #FF00FF, #7FFFD4);
+    opacity: 0.8;
+  }
+
+  dialog {
+    align-self: center;
+    justify-self: center;
+  }
+  

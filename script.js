@@ -10,7 +10,7 @@ return libraryContainer.scrollIntoView();
 }
 
 
-/* MVP - Library cards */
+/* Library storage, constructor function */
 const library = [];
 
 function Book(title, author, year, pages) {
@@ -22,9 +22,9 @@ function Book(title, author, year, pages) {
 
 Book.prototype.read = function() {
         if (userRead.checked = true) {
-            return "read"
+            return "read" //change this
         } else {
-            return "not read"
+            return "not read" //and this, once you get here
         }
     }
 
@@ -35,8 +35,17 @@ const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigu
 //add books to the existing array
 library.splice(0, 0, atomicHabits, libroRojo);
 
-//Accept user input
+//Open and close the modal
+const modal = document.querySelector("dialog");
+const closeModal = document.querySelector(".close-modal")
 const submit = document.querySelector(".submit");
+const addBookButton = document.querySelector(".add-book");
+
+addBookButton.addEventListener("click", () => {
+    modal.showModal();
+})
+
+//Accept user input
 submit.addEventListener("click", addBook);
 
 
@@ -73,21 +82,19 @@ function addFromLibrary() {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", `${'book' + (i + 1)}`);
-        libraryContainer = document.querySelector(".library-container");
+        libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
 
         //Title
         bookTitle = document.createElement("h2");
         bookTitle.setAttribute("class", `${library[i].title}`);
         bookTitle.textContent = library[i].title;
-        console.log(bookTitle);
         bookContainer.appendChild(bookTitle);
 
         //Author
         bookAuthor = document.createElement("div");
         bookAuthor.setAttribute("class", "author");
         bookAuthor.textContent = library[i].author;
-        console.log(bookAuthor);
         bookContainer.appendChild(bookAuthor);
 
         //Year
