@@ -67,38 +67,40 @@ function addFromLibrary() {
     let bookAuthor;
     let bookYear;
     let bookPages;
-    let librarySection;
+    let libraryContainer;
 
     for (i = 0; i < library.length; i++) {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", `${'book' + (i + 1)}`);
-        librarySection = document.querySelector(".library-section");
-        librarySection.appendChild(bookContainer);
+        libraryContainer = document.querySelector(".library-container");
+        libraryContainer.appendChild(bookContainer);
 
         //Title
         bookTitle = document.createElement("h2");
         bookTitle.setAttribute("class", `${library[i].title}`);
         bookTitle.textContent = library[i].title;
+        console.log(bookTitle);
         bookContainer.appendChild(bookTitle);
 
         //Author
         bookAuthor = document.createElement("div");
-        bookAuthor.setAttribute("class", "author")
+        bookAuthor.setAttribute("class", "author");
         bookAuthor.textContent = library[i].author;
-        bookAuthor.appendChild(bookTitle);
+        console.log(bookAuthor);
+        bookContainer.appendChild(bookAuthor);
 
         //Year
         bookYear = document.createElement("div");
-        bookYear.setAttribute("class", 'book-year')
+        bookYear.setAttribute("class", 'book-year');
         bookYear.textContent = library[i].year;
         bookContainer.appendChild(bookYear);
 
         //Pages
         bookPages = document.createElement('span');
-        bookPages.setAttribute("class", "year")
-        bookPages.textContent = `${library[i].year}`
-        bookPages.appendChild(bookTitle);
+        bookPages.setAttribute("class", "pages");
+        bookPages.textContent = library[i].pages
+        bookContainer.appendChild(bookPages);
     }
 }
 
