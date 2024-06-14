@@ -116,5 +116,10 @@ body {
   dialog {
     align-self: center;
     justify-self: center;
+    padding: 1.6rem;
+  }
+  
+  input {
+    margin-bottom: 0.3rem;
   }
   
