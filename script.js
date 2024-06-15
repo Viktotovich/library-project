@@ -41,6 +41,10 @@ const closeModal = document.querySelector(".close-modal")
 const submit = document.querySelector(".submit");
 const addBookButton = document.querySelector(".add-book");
 
+closeModal.addEventListener("click", () => {
+    modal.close();
+})
+
 addBookButton.addEventListener("click", () => {
     modal.showModal();
 })
@@ -113,12 +117,3 @@ function addFromLibrary() {
     }
 }
 
-
-
-
-// DOM - user content
-//need an SVG with a plus that gets shifted / deleted anytime a user adds a new book
-
-
-
-//how to turn the obj's to an array
