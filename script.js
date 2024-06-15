@@ -60,10 +60,10 @@ function addBook(e){
     const userPages = document.querySelector("#pages");
     const userRead = document.querySelector("#userRead");
 
-    const title = userTitle.textContent;
-    const author = userAuthor.textContent;
-    const year = userYear.textContent;
-    const pages = userPages.textContent;
+    const title = userTitle.value;
+    const author = userAuthor.value;
+    const year = userYear.value;
+    const pages = userPages.value;
 
     console.log(userTitle)
     let userBook = userTitle;
@@ -72,6 +72,7 @@ function addBook(e){
     library.push(userBook);
     addFromLibrary();
     e.preventDefault();
+    modal.close();
 }
 
 // loop to add things in the object to the library
