@@ -3,14 +3,14 @@ const goToLibraryButton = document.querySelector("#anchor-to-library");
 const libraryContainer = document.querySelector(".library-container");
 
 
-goToLibraryButton.addEventListener("click", goToLibrary());
+goToLibraryButton.addEventListener("click", goToLibrary);
 
 function goToLibrary() {
-return libraryContainer.scrollIntoView();
+    libraryContainer.scrollIntoView({behavior:"smooth"});
 }
 
 
-/* MVP - Library cards */
+/* Library storage, constructor function */
 const library = [];
 
 function Book(title, author, year, pages) {
@@ -22,9 +22,9 @@ function Book(title, author, year, pages) {
 
 Book.prototype.read = function() {
         if (userRead.checked = true) {
-            return "read"
+            return "read" //change this
         } else {
-            return "not read"
+            return "not read" //and this, once you get here
         }
     }
 
@@ -35,12 +35,21 @@ const libroRojo = new Book("El pequeño libro rojo de las ventas", 'Fran Rodrigu
 //add books to the existing array
 library.splice(0, 0, atomicHabits, libroRojo);
 
-//Accept user input
+//Open and close the modal
+const modal = document.querySelector("dialog");
+const closeModal = document.querySelector(".close-modal")
 const submit = document.querySelector(".submit");
+const addBookButton = document.querySelector(".add-book");
+
+addBookButton.addEventListener("click", () => {
+    modal.showModal();
+})
+
+//Accept user input
 submit.addEventListener("click", addBook);
 
 
-function addBook(){
+function addBook(e){
     const userTitle = document.querySelector("#title");
     const userAuthor = document.querySelector("#author");
     const userYear = document.querySelector("#year");
@@ -52,11 +61,13 @@ function addBook(){
     const year = userYear.textContent;
     const pages = userPages.textContent;
 
-    const userBook = userTitle;
+    console.log(userTitle)
+    let userBook = userTitle;
     userBook = new Book(title, author, year, pages, userRead)
 
     library.push(userBook);
     addFromLibrary();
+    e.preventDefault();
 }
 
 // loop to add things in the object to the library
@@ -67,14 +78,14 @@ function addFromLibrary() {
     let bookAuthor;
     let bookYear;
     let bookPages;
-    let librarySection;
+    let libraryContainer;
 
     for (i = 0; i < library.length; i++) {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", `${'book' + (i + 1)}`);
-        librarySection = document.querySelector(".library-section");
-        librarySection.appendChild(bookContainer);
+        libraryContainer = document.querySelector("#book-sort");
+        libraryContainer.appendChild(bookContainer);
 
         //Title
         bookTitle = document.createElement("h2");
@@ -84,21 +95,21 @@ function addFromLibrary() {
 
         //Author
         bookAuthor = document.createElement("div");
-        bookAuthor.setAttribute("class", "author")
+        bookAuthor.setAttribute("class", "author");
         bookAuthor.textContent = library[i].author;
-        bookAuthor.appendChild(bookTitle);
+        bookContainer.appendChild(bookAuthor);
 
         //Year
         bookYear = document.createElement("div");
-        bookYear.setAttribute("class", 'book-year')
+        bookYear.setAttribute("class", 'book-year');
         bookYear.textContent = library[i].year;
         bookContainer.appendChild(bookYear);
 
         //Pages
         bookPages = document.createElement('span');
-        bookPages.setAttribute("class", "year")
-        bookPages.textContent = `${library[i].year}`
-        bookPages.appendChild(bookTitle);
+        bookPages.setAttribute("class", "pages");
+        bookPages.textContent = library[i].pages
+        bookContainer.appendChild(bookPages);
     }
 }
 
