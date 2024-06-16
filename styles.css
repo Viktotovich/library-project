@@ -99,8 +99,10 @@ body {
 
 #book-sort {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -114,7 +116,7 @@ dialog::backdrop {
 }
 
 dialog {
-    padding: 1.6rem;
+    padding: 2.2rem 1.8rem 1.8rem 1.6rem;
     position: absolute;
     top: 30%;
     left: 40%;
@@ -122,4 +124,43 @@ dialog {
 
 input {
     margin-bottom: 0.3rem;
+}
+
+.close-modal {
+    position: absolute;
+    appearance: none;
+    background-color: transparent;
+    color: red;
+    padding: 0.2rem;
+    right: 12px;
+    top: 3px;
+    border: 1px solid transparent;
+    font-size: 1.3rem;
+}
+
+.close-modal:hover {
+    border: 1px solid gainsboro;
+    cursor: pointer;
+}
+
+.submit {
+    margin-top: 0.7rem;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+}
+
+.submit:hover {
+    background-color: rgb(199, 196, 196);
+    cursor: pointer;
+}
+
+.submit:active {
+    transform: translateY(1px);
+    background-color: rgb(160, 159, 159);
+    cursor: progress;
+}
+
+.book {
+    width: 100%;
+    height: 100%;
 }

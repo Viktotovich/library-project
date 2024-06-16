@@ -91,7 +91,7 @@ function addFromLibrary() {
     for (i = 0; i < library.length; i++) {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
-        bookContainer.setAttribute("class", `${'book' + (i + 1)}`);
+        bookContainer.setAttribute("class", 'book');
         libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
 
