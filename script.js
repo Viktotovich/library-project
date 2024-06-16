@@ -13,19 +13,19 @@ function goToLibrary() {
 /* Library storage, constructor function */
 const library = [];
 
-function Book(title, author, year, pages) {
+function Book(title, author, year, pages, read) {
     this.title = title,
     this.author = author,
     this.year = year,
     this.pages = pages
+    this.read = read;
 }
 
-Book.prototype.read = function() {
-    console.log(read)
-        if (read == 'on') {
-            return this.read = "read" //change this
+Book.prototype.readStatus = function() {
+        if (this.read == 'on') {
+            return this.read = "read"
         } else {
-            return this.read = "not read" //and this, once you get here
+            return this.read = "not read"
         }
     }
 
@@ -85,6 +85,7 @@ function addFromLibrary() {
     let bookYear;
     let bookPages;
     let libraryContainer;
+    let readStatus;
 
     for (i = 0; i < library.length; i++) {
         //selecting the container, and creating our first element
@@ -118,10 +119,14 @@ function addFromLibrary() {
         bookContainer.appendChild(bookPages);
 
         //Read bool
-        read = document.createElement('div');
-        read.setAttribute("class", "read-bool");
-        read.textContent = library[i].read();
-        bookContainer.appendChild(read);
+        readStatus = document.createElement('div');
+        readStatus.setAttribute("class", "read-bool");
+        readStatus.textContent = library[i].readStatus();
+        bookContainer.appendChild(readStatus);
     }
+
+    //the holy grail of anti-duplicate, looks simple, took me 4 days to come to this
+    library.splice(0, (library.length));
 }
 
+addFromLibrary()
