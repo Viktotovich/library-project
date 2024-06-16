@@ -21,10 +21,11 @@ function Book(title, author, year, pages) {
 }
 
 Book.prototype.read = function() {
-        if (userRead.checked = true) {
-            return "read" //change this
+    console.log(read)
+        if (read == 'on') {
+            return this.read = "read" //change this
         } else {
-            return "not read" //and this, once you get here
+            return this.read = "not read" //and this, once you get here
         }
     }
 
@@ -64,10 +65,10 @@ function addBook(e){
     const author = userAuthor.value;
     const year = userYear.value;
     const pages = userPages.value;
+    const read = userRead.value;
 
-    console.log(userTitle)
     let userBook = userTitle;
-    userBook = new Book(title, author, year, pages, userRead)
+    userBook = new Book(title, author, year, pages, read)
 
     library.push(userBook);
     addFromLibrary();
@@ -113,8 +114,14 @@ function addFromLibrary() {
         //Pages
         bookPages = document.createElement('span');
         bookPages.setAttribute("class", "pages");
-        bookPages.textContent = library[i].pages
+        bookPages.textContent = library[i].pages;
         bookContainer.appendChild(bookPages);
+
+        //Read bool
+        read = document.createElement('div');
+        read.setAttribute("class", "read-bool");
+        read.textContent = library[i].read();
+        bookContainer.appendChild(read);
     }
 }
 
