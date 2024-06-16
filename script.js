@@ -22,7 +22,7 @@ function Book(title, author, year, pages, read) {
 }
 
 Book.prototype.readStatus = function() {
-        if (this.read == 'on') {
+        if (this.read == true) {
             return this.read = "read"
         } else {
             return this.read = "not read"
@@ -65,7 +65,8 @@ function addBook(e){
     const author = userAuthor.value;
     const year = userYear.value;
     const pages = userPages.value;
-    const read = userRead.value;
+    const read = userRead.checked;
+    console.log(read)
 
     let userBook = userTitle;
     userBook = new Book(title, author, year, pages, read)
