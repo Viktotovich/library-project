@@ -39,15 +39,12 @@ library.splice(0, 0, atomicHabits, libroRojo);
 const modal = document.querySelector("dialog");
 const closeModal = document.querySelector(".close-modal")
 const submit = document.querySelector(".submit");
-const addBookButton = document.querySelector(".add-book");
 
 closeModal.addEventListener("click", () => {
     modal.close();
 })
 
-addBookButton.addEventListener("click", () => {
-    modal.showModal();
-})
+
 
 //Accept user input
 submit.addEventListener("click", addBook);
@@ -66,18 +63,29 @@ function addBook(e){
     userBook = new Book(userTitle, userAuthor, userYear, userPages, userRead)
 
     library.push(userBook);
-    addFromLibrary();
+    renderLibrary();
     modal.close();
 }
 
 // loop to add things in the object to the library
-function addFromLibrary() {
-    library.forEach(function(book, index){
+function renderLibrary() {
+    let libraryContainer = document.querySelector("#book-sort");
+    libraryContainer.innerHTML = '';
+        //Add Book Button (causes overlap with content if not within the grid) - must be added before loop, as otherwise it'd make many buttons
+        let addBookButton = document.createElement("button");
+        addBookButton.setAttribute("class", "add-book");
+        libraryContainer.appendChild(addBookButton);
+        addBookButton.addEventListener("click", () => {
+            modal.showModal();
+        })
+        addBookButton.textContent = "[+]"
+
+        //The Loop
+        library.forEach(function(book, index){
         //The book container element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", 'book');
         bookContainer.setAttribute("title", `${"book" + index}`);
-        let libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
 
         //Details Container, to make it easier to use flex on read / not read bools
@@ -118,38 +126,41 @@ function addFromLibrary() {
         readStatus.setAttribute("class", "read-bool");
         readStatus.textContent = book.readStatus();
         toolContainer.appendChild(readStatus);
-        readStatus.addEventListener("click", toggleRead);
+        readStatus.addEventListener("click", ()=> toggleRead(index));
+
+        //Without this, the toggleRead doesnt work well
+        readStatus.setAttribute('data-index', index);
 
         //Delete button
         deleteBook = document.createElement('span');
         deleteBook.setAttribute("class", "delete-book");
         deleteBook.innerHTML = "🗑️";
         toolContainer.appendChild(deleteBook);
-        deleteBook.setAttribute("id", `${'book' + index}`);
-        deleteBook.addEventListener("click", deleteBookFunction)
+        deleteBook.addEventListener("click", ()=> deleteBookFunction(index))
     });
-    //old method
-    library.splice(0, (library.length));
 }
 
-function toggleRead(event) {
-    const readStatus = event.target;
-    if (readStatus.textContent === 'not read') {
-        readStatus.textContent = 'read';
-        readStatus.setAttribute("id", 'yes');
+function toggleRead(index) {
+    const book = library[index];
+    const readStatus = document.querySelector(`.read-bool[data-index='${index}']`);
+    book.read = !book.read;
+    changeTextDisplay(book, readStatus);
+}
+
+function deleteBookFunction(index) {
+    library.splice(index, 1);
+    renderLibrary();
+}
+
+function changeTextDisplay(book, readStatus) {
+    if (book.read) {
+        readStatus.textContent = "read";
+        readStatus.setAttribute('id', 'yes');
     } else {
         readStatus.textContent = 'not read';
-        readStatus.setAttribute("id", 'no');
+        readStatus.setAttribute('id', 'no');
     }
 }
 
-function deleteBookFunction(e) {
-    const targetBook = e.target;
-    const targetContainer = targetBook.getAttribute('id');
-    const findAndDestroy = document.querySelector(`[title = ${targetContainer}]`);
-    findAndDestroy.remove();
 
-    /* This function does a very important job: we have set the class attribute on the span delete element, and the title attribute on the whole container. What this does is basically this: it takes the span delete element's id, and deletes the container with the same title attribute (as I made both to match) */
-}
-
-addFromLibrary();
+renderLibrary();

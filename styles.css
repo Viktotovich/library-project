@@ -56,12 +56,12 @@ body {
     cursor: progress;
 }
 
-.library-container,
-#book-sort {
+.library-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    border-top: 1px solid gainsboro;
+    margin: 0 4rem 20rem;
 > h3 {
     padding-bottom: 0.7rem;
     border-bottom: 1px solid gainsboro;
@@ -69,18 +69,14 @@ body {
 }
 }
 
-.library-container {
-    border-top: 1px solid gainsboro;
-    margin: 0 4rem 20rem;
-}
-
 .add-book {
+    content: '[+]';
     font-size: 5rem;
     color: blue;
     border: none;
     padding: 1rem 1.5rem;
     order: 1;
-    margin-top: 1rem;
+    margin-top: 4rem;
     border-radius: 5px;
     appearance: none;
     transition: smooth 0.2s;
