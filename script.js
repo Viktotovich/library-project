@@ -9,10 +9,8 @@ function goToLibrary() {
     libraryContainer.scrollIntoView({behavior:"smooth"});
 }
 
-
 /* Library storage, constructor function */
 const library = [];
-const antiDuplicateLibrary = [];
 
 function Book(title, author, year, pages, read) {
     this.title = title,
@@ -23,12 +21,12 @@ function Book(title, author, year, pages, read) {
 }
 
 Book.prototype.readStatus = function() {
-        if (this.read == true) {
-            return this.read = "read"
-        } else {
-            return this.read = "not read"
-        }
+    if (this.read == true) {
+        return this.read = "read"
+    } else {
+        return this.read = "not read"
     }
+}
 
 // 2 books for an example display
 const atomicHabits = new Book("Atomic Habits", "James Clear", 2018, 277);
@@ -58,20 +56,14 @@ submit.addEventListener("click", addBook);
 function addBook(e){
     e.preventDefault();
 
-    const userTitle = document.querySelector("#title");
-    const userAuthor = document.querySelector("#author");
-    const userYear = document.querySelector("#year");
-    const userPages = document.querySelector("#pages");
-    const userRead = document.querySelector("#userRead");
-
-    const title = userTitle.value;
-    const author = userAuthor.value;
-    const year = userYear.value;
-    const pages = userPages.value;
-    const read = userRead.checked;
+    const userTitle = document.querySelector("#title").value;
+    const userAuthor = document.querySelector("#author").value;
+    const userYear = document.querySelector("#year").value;
+    const userPages = document.querySelector("#pages").value;
+    const userRead = document.querySelector("#userRead").checked;
 
     let userBook = userTitle;
-    userBook = new Book(title, author, year, pages, read)
+    userBook = new Book(userTitle, userAuthor, userYear, userPages, userRead)
 
     library.push(userBook);
     addFromLibrary();
@@ -80,22 +72,12 @@ function addBook(e){
 
 // loop to add things in the object to the library
 function addFromLibrary() {
-
-    let bookContainer;
-    let informationContainer;
-    let bookTitle;
-    let bookAuthor;
-    let bookYear;
-    let bookPages;
-    let libraryContainer;
-    let readStatus;
-
-    for (i = 0; i < library.length; i++) {
-        //selecting the container, and creating our first element
+    library.forEach(function(book, index){
+        //The book container element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", 'book');
-        bookContainer.setAttribute("title", `${"book" + [i]}`);
-        libraryContainer = document.querySelector("#book-sort");
+        bookContainer.setAttribute("title", `${"book" + index}`);
+        let libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
 
         //Details Container, to make it easier to use flex on read / not read bools
@@ -105,25 +87,25 @@ function addFromLibrary() {
 
         //Title
         bookTitle = document.createElement("h2");
-        bookTitle.textContent = library[i].title;
+        bookTitle.textContent = book.title;
         informationContainer.appendChild(bookTitle);
 
         //Author
         bookAuthor = document.createElement("div");
         bookAuthor.setAttribute("class", "author");
-        bookAuthor.textContent = library[i].author;
+        bookAuthor.textContent = book.author;
         informationContainer.appendChild(bookAuthor);
 
         //Year
         bookYear = document.createElement("div");
         bookYear.setAttribute("class", 'book-year');
-        bookYear.textContent = library[i].year;
+        bookYear.textContent = book.year;
         informationContainer.appendChild(bookYear);
 
         //Pages
         bookPages = document.createElement('span');
         bookPages.setAttribute("class", "pages");
-        bookPages.textContent = library[i].pages;
+        bookPages.textContent = book.pages;
         informationContainer.appendChild(bookPages);
 
         //Tools container
@@ -134,7 +116,7 @@ function addFromLibrary() {
         //Read bool
         readStatus = document.createElement('span');
         readStatus.setAttribute("class", "read-bool");
-        readStatus.textContent = library[i].readStatus();
+        readStatus.textContent = book.readStatus();
         toolContainer.appendChild(readStatus);
         readStatus.addEventListener("click", toggleRead);
 
@@ -143,14 +125,10 @@ function addFromLibrary() {
         deleteBook.setAttribute("class", "delete-book");
         deleteBook.innerHTML = "🗑️";
         toolContainer.appendChild(deleteBook);
-        deleteBook.setAttribute("id", `${'book' + [i]}`);
+        deleteBook.setAttribute("id", `${'book' + index}`);
         deleteBook.addEventListener("click", deleteBookFunction)
-    }
-
-    //the holy grail of anti-duplicate, looks simple, took me 4 days to come to this
-    for (j = 0; j < library.length; j++){
-        antiDuplicateLibrary.push(library[j]);
-    };
+    });
+    //old method
     library.splice(0, (library.length));
 }
 
