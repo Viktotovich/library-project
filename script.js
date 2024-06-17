@@ -12,6 +12,7 @@ function goToLibrary() {
 
 /* Library storage, constructor function */
 const library = [];
+const antiDuplicateLibrary = [];
 
 function Book(title, author, year, pages, read) {
     this.title = title,
@@ -55,6 +56,8 @@ submit.addEventListener("click", addBook);
 
 
 function addBook(e){
+    e.preventDefault();
+
     const userTitle = document.querySelector("#title");
     const userAuthor = document.querySelector("#author");
     const userYear = document.querySelector("#year");
@@ -72,7 +75,6 @@ function addBook(e){
 
     library.push(userBook);
     addFromLibrary();
-    e.preventDefault();
     modal.close();
 }
 
@@ -134,7 +136,7 @@ function addFromLibrary() {
         readStatus.setAttribute("class", "read-bool");
         readStatus.textContent = library[i].readStatus();
         toolContainer.appendChild(readStatus);
-        readStatus.addEventListener("click", toggleRead)
+        readStatus.addEventListener("click", toggleRead);
 
         //Delete button
         deleteBook = document.createElement('span');
@@ -146,6 +148,9 @@ function addFromLibrary() {
     }
 
     //the holy grail of anti-duplicate, looks simple, took me 4 days to come to this
+    for (j = 0; j < library.length; j++){
+        antiDuplicateLibrary.push(library[j]);
+    };
     library.splice(0, (library.length));
 }
 
