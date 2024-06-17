@@ -137,4 +137,27 @@ function addFromLibrary() {
     library.splice(0, (library.length));
 }
 
+
+//make read / not read changeable
+function addReadStatus() {
+    const readStatusElements = document.querySelectorAll(".read-bool");
+
+    readStatusElements.forEach(readStatus => {
+        readStatus.addEventListener("click", toggleRead);
+    });
+
+    function toggleRead(event) {
+        const readStatus = event.target;
+        if (readStatus.textContent === 'not read') {
+            readStatus.textContent = 'read';
+            readStatus.setAttribute("id", 'yes');
+        } else {
+            readStatus.textContent = 'not read';
+            readStatus.setAttribute("id", 'no');
+        }
+    }
+};
+
+
 addFromLibrary();
+addReadStatus();

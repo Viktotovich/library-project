@@ -187,35 +187,56 @@ input {
     margin: 0.5rem auto;
     font-size: 1.1rem;
     border-bottom: 1px solid gainsboro;
-    border-top: 1px solid gainsboro;
+}
+
+.pages {
+    border: 1px solid gainsboro;
+    margin-left: 0.3rem;
+    padding-right: 0.2rem;
 }
 
 .author::before {
     content: "✍🏻" ;
     margin-right: 1rem;
+    margin-left: 0.5rem;
     font-size: 1rem;
 }
 
 .book-year::before {
     content: "📅" ;
     margin-right: 1rem;
+    margin-left: 0.5rem;
     font-size: 1rem;
 }
 
 .pages::before {
     content: "📄" ;
     margin-right: 1rem;
+    margin-left: 0.2rem;
     font-size: 1rem;
 }
 
 .read-bool {
     position: relative;
     padding-left: 1.5rem;
+    padding-right: 0.3rem;
     margin-left: auto;
 }
 
-.read-bool::before {
+.read-bool#no::before {
+    position: absolute;
+    content: "x";
+    left: 1px;
+    color: rgb(231, 108, 108);
+}
+
+.read-bool#yes::before {
     position: absolute;
     content: "✔️";
     left: 2px;
+}
+
+.read-bool:hover {
+    cursor: pointer;
+    color: #6464c7;
 }
