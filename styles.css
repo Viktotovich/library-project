@@ -108,7 +108,7 @@ body {
     width: 100%;
     margin-top: 20px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(275px, 1fr));
     gap: 25px;
     grid-auto-flow: inherit;
 }
@@ -172,8 +172,50 @@ input {
     height: 100%;
     display: flex;
     flex-direction: column;
-    > h2 {
-        padding: 1rem 1.5rem 0.7rem;
-        background-color: rgb(240, 240, 240);
-    }
+    justify-content: space-between;
+}
+
+.information-container > h2 {
+    padding: 1rem 1.5rem 0.7rem;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 0.7rem;
+}
+
+.author,
+.book-year,
+.pages {
+    margin: 0.5rem auto;
+    font-size: 1.1rem;
+    border-bottom: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+}
+
+.author::before {
+    content: "✍🏻" ;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.book-year::before {
+    content: "📅" ;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.pages::before {
+    content: "📄" ;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.read-bool {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-left: auto;
+}
+
+.read-bool::before {
+    position: absolute;
+    content: "✔️";
+    left: 2px;
 }

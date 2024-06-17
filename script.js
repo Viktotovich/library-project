@@ -81,6 +81,7 @@ function addBook(e){
 function addFromLibrary() {
 
     let bookContainer;
+    let informationContainer;
     let bookTitle;
     let bookAuthor;
     let bookYear;
@@ -92,35 +93,41 @@ function addFromLibrary() {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", 'book');
+        bookContainer.setAttribute("id", `${library[i].title}`);
         libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
+
+        //Details Container, to make it easier to use flex on read / not read bools
+        informationContainer = document.createElement("div");
+        informationContainer.setAttribute("class", 'information-container');
+        bookContainer.appendChild(informationContainer);
 
         //Title
         bookTitle = document.createElement("h2");
         bookTitle.setAttribute("class", `${library[i].title}`);
         bookTitle.textContent = library[i].title;
-        bookContainer.appendChild(bookTitle);
+        informationContainer.appendChild(bookTitle);
 
         //Author
         bookAuthor = document.createElement("div");
         bookAuthor.setAttribute("class", "author");
         bookAuthor.textContent = library[i].author;
-        bookContainer.appendChild(bookAuthor);
+        informationContainer.appendChild(bookAuthor);
 
         //Year
         bookYear = document.createElement("div");
         bookYear.setAttribute("class", 'book-year');
         bookYear.textContent = library[i].year;
-        bookContainer.appendChild(bookYear);
+        informationContainer.appendChild(bookYear);
 
         //Pages
         bookPages = document.createElement('span');
         bookPages.setAttribute("class", "pages");
         bookPages.textContent = library[i].pages;
-        bookContainer.appendChild(bookPages);
+        informationContainer.appendChild(bookPages);
 
         //Read bool
-        readStatus = document.createElement('div');
+        readStatus = document.createElement('span');
         readStatus.setAttribute("class", "read-bool");
         readStatus.textContent = library[i].readStatus();
         bookContainer.appendChild(readStatus);
@@ -130,4 +137,4 @@ function addFromLibrary() {
     library.splice(0, (library.length));
 }
 
-addFromLibrary()
+addFromLibrary();
