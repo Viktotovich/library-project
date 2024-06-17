@@ -79,12 +79,11 @@ body {
     color: blue;
     border: none;
     padding: 1rem 1.5rem;
-
+    order: 1;
     margin-top: 1rem;
     border-radius: 5px;
     appearance: none;
     transition: smooth 0.2s;
-    grid-area: 1 / 3 / 2 / 4;
     align-self: center;
     justify-self: center;
     width: 100%;
@@ -107,7 +106,7 @@ body {
     display: grid;
     width: 100%;
     margin-top: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(275px, 1fr));
     gap: 25px;
     grid-auto-flow: inherit;
@@ -216,17 +215,32 @@ input {
     font-size: 1rem;
 }
 
+
+.tool-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .read-bool {
     position: relative;
     padding-left: 1.5rem;
     padding-right: 0.3rem;
-    margin-left: auto;
+    margin-top: 1rem;
+    background-color: rgb(243, 241, 241);
+}
+
+.read-bool#no {
+    background-color: rgb(255, 209, 209);
+}
+
+.read-bool#yes {
+    background-color: rgb(227, 245, 227);
 }
 
 .read-bool#no::before {
     position: absolute;
     content: "x";
-    left: 1px;
+    left: 2px;
     color: rgb(231, 108, 108);
 }
 
@@ -239,4 +253,30 @@ input {
 .read-bool:hover {
     cursor: pointer;
     color: #6464c7;
+}
+
+
+/* Inputs : UI / UX */
+input:valid {
+    background-color: rgb(227, 245, 227);
+}
+
+input:invalid {
+    background-color: white;
+    border: 1px solid salmon;
+}
+
+.delete-book {
+    position: relative;
+    right: 10px;
+    bottom: -14px;
+}
+
+.delete-book:hover {
+    cursor: pointer;
+    transform: scale3d(1.5, 1.1, 2);
+}
+
+.delete-book:active {
+    transform: translateY(1px);
 }

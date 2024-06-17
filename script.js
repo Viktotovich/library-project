@@ -66,7 +66,6 @@ function addBook(e){
     const year = userYear.value;
     const pages = userPages.value;
     const read = userRead.checked;
-    console.log(read)
 
     let userBook = userTitle;
     userBook = new Book(title, author, year, pages, read)
@@ -93,7 +92,7 @@ function addFromLibrary() {
         //selecting the container, and creating our first element
         bookContainer = document.createElement("div");
         bookContainer.setAttribute("class", 'book');
-        bookContainer.setAttribute("id", `${library[i].title}`);
+        bookContainer.setAttribute("title", `${"book" + [i]}`);
         libraryContainer = document.querySelector("#book-sort");
         libraryContainer.appendChild(bookContainer);
 
@@ -104,7 +103,6 @@ function addFromLibrary() {
 
         //Title
         bookTitle = document.createElement("h2");
-        bookTitle.setAttribute("class", `${library[i].title}`);
         bookTitle.textContent = library[i].title;
         informationContainer.appendChild(bookTitle);
 
@@ -126,30 +124,49 @@ function addFromLibrary() {
         bookPages.textContent = library[i].pages;
         informationContainer.appendChild(bookPages);
 
+        //Tools container
+        toolContainer = document.createElement("div");
+        toolContainer.setAttribute("class", "tool-container");
+        bookContainer.appendChild(toolContainer);
+
         //Read bool
         readStatus = document.createElement('span');
         readStatus.setAttribute("class", "read-bool");
         readStatus.textContent = library[i].readStatus();
-        bookContainer.appendChild(readStatus);
+        toolContainer.appendChild(readStatus);
         readStatus.addEventListener("click", toggleRead)
+
+        //Delete button
+        deleteBook = document.createElement('span');
+        deleteBook.setAttribute("class", "delete-book");
+        deleteBook.innerHTML = "🗑️";
+        toolContainer.appendChild(deleteBook);
+        deleteBook.setAttribute("id", `${'book' + [i]}`);
+        deleteBook.addEventListener("click", deleteBookFunction)
     }
 
     //the holy grail of anti-duplicate, looks simple, took me 4 days to come to this
     library.splice(0, (library.length));
 }
 
-
-    function toggleRead(event) {
-        const readStatus = event.target;
-        if (readStatus.textContent === 'not read') {
-            readStatus.textContent = 'read';
-            readStatus.setAttribute("id", 'yes');
-        } else {
-            readStatus.textContent = 'not read';
-            readStatus.setAttribute("id", 'no');
-        }
+function toggleRead(event) {
+    const readStatus = event.target;
+    if (readStatus.textContent === 'not read') {
+        readStatus.textContent = 'read';
+        readStatus.setAttribute("id", 'yes');
+    } else {
+        readStatus.textContent = 'not read';
+        readStatus.setAttribute("id", 'no');
     }
+}
 
+function deleteBookFunction(e) {
+    const targetBook = e.target;
+    const targetContainer = targetBook.getAttribute('id');
+    const findAndDestroy = document.querySelector(`[title = ${targetContainer}]`);
+    findAndDestroy.remove();
 
+    /* This function does a very important job: we have set the class attribute on the span delete element, and the title attribute on the whole container. What this does is basically this: it takes the span delete element's id, and deletes the container with the same title attribute (as I made both to match) */
+}
 
 addFromLibrary();
