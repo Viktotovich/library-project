@@ -131,20 +131,13 @@ function addFromLibrary() {
         readStatus.setAttribute("class", "read-bool");
         readStatus.textContent = library[i].readStatus();
         bookContainer.appendChild(readStatus);
+        readStatus.addEventListener("click", toggleRead)
     }
 
     //the holy grail of anti-duplicate, looks simple, took me 4 days to come to this
     library.splice(0, (library.length));
 }
 
-
-//make read / not read changeable
-function addReadStatus() {
-    const readStatusElements = document.querySelectorAll(".read-bool");
-
-    readStatusElements.forEach(readStatus => {
-        readStatus.addEventListener("click", toggleRead);
-    });
 
     function toggleRead(event) {
         const readStatus = event.target;
@@ -156,8 +149,7 @@ function addReadStatus() {
             readStatus.setAttribute("id", 'no');
         }
     }
-};
+
 
 
 addFromLibrary();
-addReadStatus();
