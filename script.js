@@ -44,11 +44,8 @@ closeModal.addEventListener("click", () => {
     modal.close();
 })
 
-
-
 //Accept user input
 submit.addEventListener("click", addBook);
-
 
 function addBook(e){
     e.preventDefault();
@@ -71,6 +68,7 @@ function addBook(e){
 function renderLibrary() {
     let libraryContainer = document.querySelector("#book-sort");
     libraryContainer.innerHTML = '';
+
         //Add Book Button (causes overlap with content if not within the grid) - must be added before loop, as otherwise it'd make many buttons
         let addBookButton = document.createElement("button");
         addBookButton.setAttribute("class", "add-book");
