@@ -138,6 +138,7 @@ function renderLibrary() {
     });
 }
 
+//leave for the book class
 function toggleRead(index) {
     const book = library[index];
     const readStatus = document.querySelector(`.read-bool[data-index='${index}']`);
