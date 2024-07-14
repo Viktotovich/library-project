@@ -70,7 +70,7 @@ body {
 }
 
 .add-book {
-    content: '[+]';
+    content: '';
     font-size: 5rem;
     color: blue;
     border: none;
