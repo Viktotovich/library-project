@@ -1,278 +1,275 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --font-size-body: 0.8rem;
-    --font-size-header: 1.5rem;
-    --font-color-body: #000080;
-    --main-bg-color: white;
+  --font-size-body: 0.8rem;
+  --font-size-header: 1.5rem;
+  --font-color-body: #000080;
+  --main-bg-color: white;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    color: var(--font-color-body);
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--font-color-body);
+  height: 100%;
 }
-
 
 /* Linear gradient needed for bg color */
 .body-container {
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(to right, #FF00FF, #7FFFD4);
-    justify-content: center;
-    align-items: center;
-    padding: 15rem 2rem;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right, #ff00ff, #7fffd4);
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 2rem;
 
-    >h1 {
-        font-size: var(--font-size-header);
-    }
+  > h1 {
+    font-size: var(--font-size-header);
+  }
 }
 
 .body-container > div {
-    padding: 0.7rem 0;
+  padding: 0.7rem 0;
 }
 
 #anchor-to-library {
-    appearance: none;
-    background-color: gainsboro;
-    border-radius: 5px;
-    padding: 0.7rem;
-    border: #000080;
+  appearance: none;
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 0.7rem;
+  border: #000080;
 }
 
 #anchor-to-library:hover {
-    background-color: rgb(199, 196, 196);
-    cursor: pointer;
+  background-color: rgb(199, 196, 196);
+  cursor: pointer;
 }
 
 #anchor-to-library:active {
-    transform: translateY(1px);
-    background-color: rgb(160, 159, 159);
-    cursor: progress;
+  transform: translateY(1px);
+  background-color: rgb(160, 159, 159);
+  cursor: progress;
 }
 
 .library-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid gainsboro;
-    margin: 0 4rem 20rem;
-> h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+  margin: 0 4rem 20rem;
+  > h3 {
     padding-bottom: 0.7rem;
     border-bottom: 1px solid gainsboro;
     margin-top: 3.5rem;
-}
+  }
 }
 
 .add-book {
-    content: '';
-    font-size: 5rem;
-    color: blue;
-    border: none;
-    padding: 1rem 1.5rem;
-    order: 1;
-    margin-top: 4rem;
-    border-radius: 5px;
-    appearance: none;
-    transition: smooth 0.2s;
-    align-self: center;
-    justify-self: center;
-    width: 100%;
+  content: "";
+  font-size: 5rem;
+  color: blue;
+  border: none;
+  padding: 1rem 1.5rem;
+  order: 1;
+  margin-top: 4rem;
+  border-radius: 5px;
+  appearance: none;
+  transition: smooth 0.2s;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
 }
 
 .add-book:hover {
-    background: gainsboro;
-    color: grey;
-    cursor: pointer;
+  background: gainsboro;
+  color: grey;
+  cursor: pointer;
 }
 
 .add-book:active {
-    transform: translateY(1px);
-    box-shadow: 1px 2px 2px 0;
-    color: rgb(163, 158, 158);
-    cursor: progress;
+  transform: translateY(1px);
+  box-shadow: 1px 2px 2px 0;
+  color: rgb(163, 158, 158);
+  cursor: progress;
 }
 
 #book-sort {
-    display: grid;
-    width: 100%;
-    margin-top: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(275px, 1fr));
-    gap: 25px;
-    grid-auto-flow: inherit;
+  display: grid;
+  width: 100%;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 25px;
+  grid-auto-flow: inherit;
 }
 
 #book-sort > div {
-    border: 1px solid gainsboro;
-}
-
-dialog::backdrop {
-    background: linear-gradient(to right, #FF00FF, #7FFFD4);
-    opacity: 0.8;
+  border: 1px solid gainsboro;
 }
 
 dialog {
-    padding: 2.2rem 1.8rem 1.8rem 1.6rem;
-    position: absolute;
-    top: 30%;
-    left: 40%;
+  padding: 2.2rem 1.8rem 1.8rem 1.6rem;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+
+dialog::backdrop {
+  background: linear-gradient(to right, #ff00ff, #7fffd4);
+  opacity: 0.8;
 }
 
 input {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .close-modal {
-    position: absolute;
-    appearance: none;
-    background-color: transparent;
-    color: red;
-    padding: 0.2rem;
-    right: 12px;
-    top: 3px;
-    border: 1px solid transparent;
-    font-size: 1.3rem;
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  color: red;
+  padding: 0.2rem;
+  right: 12px;
+  top: 3px;
+  border: 1px solid transparent;
+  font-size: 1.3rem;
 }
 
 .close-modal:hover {
-    border: 1px solid gainsboro;
-    cursor: pointer;
+  border: 1px solid gainsboro;
+  cursor: pointer;
 }
 
 .submit {
-    margin-top: 0.7rem;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
+  margin-top: 0.7rem;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
 }
 
 .submit:hover {
-    background-color: rgb(199, 196, 196);
-    cursor: pointer;
+  background-color: rgb(199, 196, 196);
+  cursor: pointer;
 }
 
 .submit:active {
-    transform: translateY(1px);
-    background-color: rgb(160, 159, 159);
-    cursor: progress;
+  transform: translateY(1px);
+  background-color: rgb(160, 159, 159);
+  cursor: progress;
 }
 
 .book {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .information-container > h2 {
-    padding: 1rem 1.5rem 0.7rem;
-    background-color: rgb(240, 240, 240);
-    margin-bottom: 0.7rem;
+  padding: 1rem 1.5rem 0.7rem;
+  background-color: rgb(240, 240, 240);
+  margin-bottom: 0.7rem;
 }
 
 .author,
 .book-year,
 .pages {
-    margin: 0.5rem auto;
-    font-size: 1.1rem;
-    border-bottom: 1px solid gainsboro;
+  margin: 0.5rem auto;
+  font-size: 1.1rem;
+  border-bottom: 1px solid gainsboro;
 }
 
 .pages {
-    border: 1px solid gainsboro;
-    margin-left: 0.3rem;
-    padding-right: 0.2rem;
+  border: 1px solid gainsboro;
+  margin-left: 0.3rem;
+  padding-right: 0.2rem;
 }
 
 .author::before {
-    content: "✍🏻" ;
-    margin-right: 1rem;
-    margin-left: 0.5rem;
-    font-size: 1rem;
+  content: "✍🏻";
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 .book-year::before {
-    content: "📅" ;
-    margin-right: 1rem;
-    margin-left: 0.5rem;
-    font-size: 1rem;
+  content: "📅";
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 .pages::before {
-    content: "📄" ;
-    margin-right: 1rem;
-    margin-left: 0.2rem;
-    font-size: 1rem;
+  content: "📄";
+  margin-right: 1rem;
+  margin-left: 0.2rem;
+  font-size: 1rem;
 }
 
-
 .tool-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .read-bool {
-    position: relative;
-    padding-left: 1.5rem;
-    padding-right: 0.3rem;
-    margin-top: 1rem;
-    background-color: rgb(243, 241, 241);
+  position: relative;
+  padding-left: 1.5rem;
+  padding-right: 0.3rem;
+  margin-top: 1rem;
+  background-color: rgb(243, 241, 241);
 }
 
 .read-bool#no {
-    background-color: rgb(255, 209, 209);
+  background-color: rgb(255, 209, 209);
 }
 
 .read-bool#yes {
-    background-color: rgb(227, 245, 227);
+  background-color: rgb(227, 245, 227);
 }
 
 .read-bool#no::before {
-    position: absolute;
-    content: "x";
-    left: 2px;
-    color: rgb(231, 108, 108);
+  position: absolute;
+  content: "x";
+  left: 2px;
+  color: rgb(231, 108, 108);
 }
 
 .read-bool#yes::before {
-    position: absolute;
-    content: "✔️";
-    left: 2px;
+  position: absolute;
+  content: "✔️";
+  left: 2px;
 }
 
 .read-bool:hover {
-    cursor: pointer;
-    color: #6464c7;
+  cursor: pointer;
+  color: #6464c7;
 }
-
 
 /* Inputs : UI / UX */
 input:valid {
-    background-color: rgb(227, 245, 227);
+  background-color: rgb(227, 245, 227);
 }
 
 input:invalid {
-    background-color: white;
-    border: 1px solid salmon;
+  background-color: white;
+  border: 1px solid salmon;
 }
 
 .delete-book {
-    position: relative;
-    right: 10px;
-    bottom: -14px;
+  position: relative;
+  right: 10px;
+  bottom: -14px;
 }
 
 .delete-book:hover {
-    cursor: pointer;
-    transform: scale3d(1.5, 1.1, 2);
+  cursor: pointer;
+  transform: scale3d(1.5, 1.1, 2);
 }
 
 .delete-book:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }

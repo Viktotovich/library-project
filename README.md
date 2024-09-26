@@ -8,15 +8,20 @@ Here are my 3 takeaways from this project
 2. Simpler is better. If you go through my commit history you will see what I mean by this. Many commits that ended up holding the project back due to over-engineering. Almost always, the best solution was the one with the least amount of code.
 3. It's good to restart. Infact, it's necessary. At a certain point this repo became a complete mess with the array items being deleted, and the keys for read/not read being completely wiped. I cut my losses, made a separate file, and worked on refactoring code (and kept the code that worked with me). The result is what you see right now.
 
-There are still funny business type of variables around, i.e: toggling read/not read on the cards makes library[i].read become true / false.. rather than read / not read. This is because I still haven't found a good way to invoke the __proto__ function (due to having to use the DOMs.)
+There are still funny business type of variables around, i.e: toggling read/not read on the cards makes library[i].read become true / false.. rather than read / not read. This is because I still haven't found a good way to invoke the **proto** function (due to having to use the DOMs.)
 
- You might say - why not just use the read() function on the prototype?
+You might say - why not just use the read() function on the prototype?
 
-Well, putting DOM manipulation on the __proto__ of Book is borderline criminal.
+Well, putting DOM manipulation on the **proto** of Book is borderline criminal.
 
-Besides, even if it is to somehow work, it would be a bad practice to put DOM elements on a __proto__. That, and the amount of mental energy required to calculate that would be measured in coffee jars, not cups.
+Besides, even if it is to somehow work, it would be a bad practice to put DOM elements on a **proto**. That, and the amount of mental energy required to calculate that would be measured in coffee jars, not cups.
 
 One day, will revisit this project, with better knowledge, and experience - and make it better. However, whether it will be the same or a new repo, remains unknown.
 
 Regardless, this project is extremely fun to play around, UI/UX is very friendly, and the not read / read buttons change color! Click them and try them out!
 
+EDIT: visiting the project months after creating it, I would love to refactor it - but we're just going to use it for practice with constraints API.
+
+This branch is going to be merged into main, and most probably it will remain the same (except the js validators).
+
+Ironically, I remember this project taking me some time - a week or two maybe? This now looks like something I could do in a day - and better

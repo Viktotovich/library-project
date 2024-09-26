@@ -1,62 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="./script.js" defer></script>
-</head>
-<body>
-    
-
+  </head>
+  <body>
     <!--Top Body-->
     <div class="body-container">
-        <h1><em>Tap into your inner librarian</em></h1>
-        <div class="flavor-text">A limitless library made by you, designed by you - with all your favorite authors and books...</div>
-        <div class="button-container">
-            <button id="anchor-to-library" type="button">Start adding books!</button>
-        </div>
+      <h1><em>Tap into your inner librarian</em></h1>
+      <div class="flavor-text">
+        A limitless library made by you, designed by you - with all your
+        favorite authors and books...
+      </div>
+      <div class="button-container">
+        <button id="anchor-to-library" type="button">
+          Start adding books!
+        </button>
+      </div>
     </div>
-
 
     <!--library grid -->
     <div class="library-container">
-    <h3><em>Your Library, Full Control</em></h3>
-      
-        <div id="book-sort"></div>
-            <dialog>
-                <button type="button" class="close-modal" autofocus>x</button>
-                <form action="" method="">
-                    <div>
-                        <label for="title">Book Title:</label>
-                        <input id="title" type="text" name="title" required aria-label="required" placeholder="Albert and the Goose" maxlength="50">
-                    </div>
+      <h3><em>Your Library, Full Control</em></h3>
 
-                    <div>
-                        <label for="author">Author Name:</label>
-                        <input id="author" type="text" name="author" required aria-label="required" placeholder="Blues Clues Jr." maxlength="40">
-                    </div>
+      <div id="book-sort"></div>
+      <dialog>
+        <button type="button" class="close-modal" autofocus>x</button>
+        <form action="" method="">
+          <div>
+            <label for="title">Book Title:</label>
+            <input
+              id="title"
+              type="text"
+              name="title"
+              required
+              aria-label="required"
+              placeholder="Albert and the Goose"
+              maxlength="40"
+            />
+          </div>
 
-                    <div>
-                        <label for="year">Year of release:</label>
-                        <input id="year" type="year" name="year" required aria-label="required" placeholder="2001" minlength="3" maxlength="4">
-                    </div>
+          <div>
+            <label for="author">Author Name:</label>
+            <input
+              id="author"
+              type="text"
+              name="author"
+              required
+              aria-label="required"
+              placeholder="Blues Clues Jr."
+              minlength="3"
+              maxlength="40"
+            />
+          </div>
 
-                    <div>
-                        <label for="pages">Pages:</label>
-                        <input id="pages" type="number" name="pages" required aria-label="required" placeholder="82" min="0" max="2000">
-                    </div>
+          <div>
+            <label for="year">Year of release:</label>
+            <input
+              id="year"
+              type="date"
+              name="year"
+              required
+              aria-label="required"
+              placeholder="2001"
+              maxlength="2025"
+            />
+          </div>
 
-                    <div>
-                        <label for="userRead">Have you read it?</label>
-                        <input id="userRead" type="checkbox" name="userRead">
-                    </div>
+          <div>
+            <label for="pages">Pages:</label>
+            <input
+              id="pages"
+              type="number"
+              name="pages"
+              required
+              aria-label="required"
+              placeholder="82"
+              min="0"
+              max="2000"
+            />
+          </div>
 
-                    <span class="warning-text"></span>
-                    <button class="submit" formmethod="dialog">Submit</button>
-                </form>
-            </dialog>
+          <div>
+            <label for="userRead">Have you read it?</label>
+            <input id="userRead" type="checkbox" name="userRead" />
+          </div>
+
+          <span class="warning-text"></span>
+          <button class="submit" formmethod="dialog">Submit</button>
+        </form>
+      </dialog>
     </div>
-</body>
+  </body>
 </html>
